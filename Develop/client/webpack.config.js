@@ -1,7 +1,10 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
 const path = require("path");
+// ??? do I need this one?
 const { InjectManifest } = require("workbox-webpack-plugin");
+// ?? or this one??
+const { GenerateSW } = require("workbox-webpack-plugin");
 
 
 module.exports = () => {
@@ -11,6 +14,7 @@ module.exports = () => {
     entry: {
       main: "./src/js/index.js",
       install: "./src/js/install.js",
+      editor: "./src/js/editor.js"
     },
     // Output for our bundles
     output: {
@@ -23,6 +27,11 @@ module.exports = () => {
         template: "./index.html",
         title: "My Text Editor",
       }),
+
+      // ????do I need this
+      new GenerateSW(),
+
+      // ??? do I need this?
       // Injects our custom service worker
       new InjectManifest({
         swSrc: "./src-sw.js",
@@ -34,7 +43,7 @@ module.exports = () => {
         fingerprints: false,
         inject: true,
         name: "My Text Editor",
-        short_name: "TEdit",
+        short_name: "MTEdit",
         description: "Notes where you need them!",
         background_color: "#225ca3",
         theme_color: "#225ca3",
