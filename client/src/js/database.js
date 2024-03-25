@@ -25,6 +25,7 @@ export const putDb = async (content) => {
   console.log("PUT content to the database");
   console.log("content = ");
   console.log(content);
+  console.log(content.keyPath);
 
   // Create a connection to the database
   const mteDb = await openDB(IDB_NAME, IDB_VERSION);
@@ -36,7 +37,7 @@ export const putDb = async (content) => {
   const store = tx.objectStore(IDB_NAME);
 
   // update the current content with the new content
-  const request = await store.put({ id: id, mte: content });
+  const request = await store.put({id: IDB_VERSION, value: content});
 
   //Get confirmation of the request
   const result = await request;
@@ -67,7 +68,7 @@ export const getDb = async () => {
   console.log("get request");
   console.log(request);
   console.log("result.value", result.value);
-  return result;
+  return result?.value;
 };
 
 initdb();

@@ -4,7 +4,7 @@ const path = require("path");
 // ??? do I need this one?
 const { InjectManifest } = require("workbox-webpack-plugin");
 // ?? or this one??
-const { GenerateSW } = require("workbox-webpack-plugin");
+//const { GenerateSW } = require("workbox-webpack-plugin");
 
 
 module.exports = () => {
@@ -29,7 +29,7 @@ module.exports = () => {
       }),
 
       // ????do I need this
-      new GenerateSW(),
+      //new GenerateSW(),
 
       // ??? do I need this?
       // Injects our custom service worker
