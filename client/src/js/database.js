@@ -23,9 +23,6 @@ const initdb = async () =>
 //export const putDb = async (content) => console.error("putDb not implemented");
 export const putDb = async (content) => {
   console.log("PUT content to the database");
-  console.log("content = ");
-  console.log(content);
-  console.log(content.keyPath);
 
   // Create a connection to the database
   const mteDb = await openDB(IDB_NAME, IDB_VERSION);
@@ -41,8 +38,6 @@ export const putDb = async (content) => {
 
   //Get confirmation of the request
   const result = await request;
-  console.log("Content updated", result);
-  console.log("end of putDb");
   return result;
 };
 
@@ -65,9 +60,6 @@ export const getDb = async () => {
   // Get confirmation of the request.
   const result = await request;
 
-  console.log("get request");
-  console.log(request);
-  console.log("result.value", result.value);
   return result?.value;
 };
 
