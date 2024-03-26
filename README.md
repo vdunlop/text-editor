@@ -62,11 +62,41 @@ WHEN I deploy to Render
 THEN I should have proper build scripts for a webpack application
 
 ### Mock-Up
-The text-editor app was deployed to Render which hosts full-stack applications. 
+The text-editor app was deployed to Render which hosts full-stack applications. See Installation-Execution for details.
 
+Main page on start up:
+
+![text-editor main page](./Assets/first.png)
+
+Manifest:
+
+![text-editor manifest](./Assets/manifest.png)
+
+Service Worker:
+
+![text-editor service worker](./Assets/serviceworker.png)
+
+IDB:
+
+![text-editor IDB](./Assets/IDB.png)
+
+Installed look:
+
+![text-editor Installed](./Assets/installedversion.png)
 
 ## Installation-Execution
+Execute text-editor by running this link in your browser:
+https://text-editor-48tx.onrender.com
 
+When you first run, you will see the text editor with MTE displayed. Click on the Install button to run this text-editor without the internet. It will appear without the browser information on the top.
+
+In Dev Tools you will see:
+
+1. Under Application/Manifest: the text-editor shows with its Identity, Presentation and Icons information.
+
+2. Under Application/Service Workers: you will see the service worker information about the deployed version (deployed in Render).
+
+3. Application/IndexedDB: this is the IDB that the app is using. Under the name MTE will be the data that has been stored in its IDB. As you enter more information into the text-editor, you will see it added to the IDB.
 
 ## Usage
 The text-editor app allows a user to save notes or examples of code or any text data that you would like to save, to be retrieved at a later time. The user will be able to save their desired information with or without an internet connection. They won't "lose their thoughts" when the internet is down or inaccessible.
